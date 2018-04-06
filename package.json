@@ -19,7 +19,9 @@
 		"index.js"
 	],
 	"keywords": [
-		""
+		"ssh",
+		"key",
+		"file"
 	],
 	"dependencies": {
 		"rewire": "^3.0.2"
