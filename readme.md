@@ -1,6 +1,6 @@
 # ssh-key-files [![Build Status](https://travis-ci.org/florianb/ssh-key-files.svg?branch=master)](https://travis-ci.org/florianb/ssh-key-files)
 
-> Return object containing private ssh-keyfiles of user
+> Return an object containing ssh-keyfile pairs of the current user
 
 
 ## Install

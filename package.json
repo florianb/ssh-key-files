@@ -1,7 +1,7 @@
 {
 	"name": "ssh-key-files",
 	"version": "1.0.0",
-	"description": "Return object containing private ssh-keyfiles of user",
+	"description": "Return an object containing ssh-keyfile pairs of the current user",
 	"license": "MIT",
 	"repository": "florianb/ssh-key-files",
 	"author": {
