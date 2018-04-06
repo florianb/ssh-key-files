@@ -47,7 +47,7 @@ The public keyfile can be easily derived by adding the `.pub`-extension manually
     const privateKeyFile = keyFiles.unicorn; //=> /Users/dr-evil/.ssh/unicorn
     const publicKeyFile = `${privateKeyFile}.pub`; //=> /Users/dr-evil/.ssh/unicorn.pub
 
-#### dir
+#### dir (optional)
 
 Type: `string`
 
