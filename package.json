@@ -1,0 +1,39 @@
+{
+	"name": "ssh-key-files",
+	"version": "1.0.0",
+	"description": "Return object containing private ssh-keyfiles of user",
+	"license": "MIT",
+	"repository": "florianb/ssh-key-files",
+	"author": {
+		"name": "Florian Breisch",
+		"email": "florian.breisch@mindkeeper.solutions",
+		"url": "mindkeeper.solutions"
+	},
+	"engines": {
+		"node": ">=4"
+	},
+	"scripts": {
+		"test": "xo && ava"
+	},
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		""
+	],
+	"dependencies": {
+		"rewire": "^3.0.2"
+	},
+	"devDependencies": {
+		"ava": "^0.20.0",
+		"xo": "^0.18.2"
+	},
+	"xo": {
+		"rules": {
+			"semi": [
+				"error",
+				"never"
+			]
+		}
+	}
+}
