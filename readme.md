@@ -1,6 +1,6 @@
 # ssh-key-files [![Build Status](https://travis-ci.org/florianb/ssh-key-files.svg?branch=master)](https://travis-ci.org/florianb/ssh-key-files)
 
-> Return an object containing ssh-keyfile pairs of the current user
+> Asynchronously returns an object containing ssh-keyfile pairs of the current user
 
 
 ## Install
@@ -15,11 +15,11 @@ $ npm install ssh-key-files
 ```js
 const sshKeyFiles = require('ssh-key-files');
 
-sshKeyFiles();
+await sshKeyFiles();
 //=> {unicorn: '/Users/dr-evil/.ssh/unicorn'}
 
 // Search a custom directory instead
-sshKeyFiles('/temp');
+await sshKeyFiles('/temp');
 //=> {garbage: '/temp/garbage'}
 ```
 
@@ -28,9 +28,9 @@ sshKeyFiles('/temp');
 
 ### sshKeyFiles([dir])
 
-Searches at the users ssh-directory for private/public key-file pairs. It estimates the given file pairs share the same basename where the private name has no file-extension and the public keyfile ends with `.pub`.
+Asynchronously searches at the users ssh-directory for private/public key-file pairs. It estimates the given file pairs share the same basename where the private name has no file-extension and the public keyfile ends with `.pub`.
 
-The result consists of private keyfile-basename / private keyfile-path pairs, if the private as well as the public files exist.
+The Promise returns private keyfile-basename / private keyfile-path pairs, if both, the private as well as the public file, exist.
 
 **Example:**
 
@@ -43,16 +43,27 @@ The result consists of private keyfile-basename / private keyfile-path pairs, if
 
 The public keyfile can be easily derived by adding the `.pub`-extension manually:
 
-    const keyFiles = sshKeyFiles();
+    const keyFiles = await sshKeyFiles();
     const privateKeyFile = keyFiles.unicorn; //=> /Users/dr-evil/.ssh/unicorn
     const publicKeyFile = `${privateKeyFile}.pub`; //=> /Users/dr-evil/.ssh/unicorn.pub
+
+You might, of course, use the thenable-syntax:
+
+    let privateKeyFile;
+    let publicKeyFile;
+
+    sshKeyFiles()
+    .then(keyFiles => {
+        privateKeyFile = keyFiles.unicorn; //=> /Users/dr-evil/.ssh/unicorn
+        publicKeyFile = `${privateKeyFile}.pub`; //=> /Users/dr-evil/.ssh/unicorn.pub
+    });
+
 
 #### dir (optional)
 
 Type: `string`
 
 Alternative path to search for files with a corresponding `.pub`-file. Defaults to the users `.ssh`-folder (located at the users os-specific home directory).
-
 
 
 ## License
