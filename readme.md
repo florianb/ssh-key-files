@@ -34,21 +34,26 @@ The Promise returns private keyfile-basename / private keyfile-path pairs, if bo
 
 **Example:**
 
+```js
     {
       github: '/Users/unicorn/.shh/github',
       gitlab_rsa: '/Users/unicorn/.shh/gitlab_rsa'
     }
+```
 
 > :warning: The file permissions are not checked.
 
 The public keyfile can be easily derived by adding the `.pub`-extension manually:
 
+```js
     const keyFiles = await sshKeyFiles();
     const privateKeyFile = keyFiles.unicorn; //=> /Users/dr-evil/.ssh/unicorn
     const publicKeyFile = `${privateKeyFile}.pub`; //=> /Users/dr-evil/.ssh/unicorn.pub
+```
 
 You might, of course, use the thenable-syntax:
 
+```js
     let privateKeyFile;
     let publicKeyFile;
 
@@ -57,7 +62,7 @@ You might, of course, use the thenable-syntax:
         privateKeyFile = keyFiles.unicorn; //=> /Users/dr-evil/.ssh/unicorn
         publicKeyFile = `${privateKeyFile}.pub`; //=> /Users/dr-evil/.ssh/unicorn.pub
     });
-
+```
 
 #### dir (optional)
 
